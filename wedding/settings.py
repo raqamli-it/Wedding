@@ -150,9 +150,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:80020', 'https://gullar.uzfati.uz']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:80050', 'https://wedding.uzfati.uz']
 CORS_ALLOWED_ORIGINS = [
-    'https://gullar.uzfati.uz',
+    'https://wedding.uzfati.uz',
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
