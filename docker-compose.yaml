@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/Wedding
+      - static_volume:/Wedding/static
+      - media_volume:/Wedding/media
+    ports:
+      - "8020:8000"
+    depends_on:
+      - wedding_db
+
+  wedding_db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: wedding_db  # Django'dagi DATABASES konfiguratsiyasiga mos
+      POSTGRES_USER: wedding_user  # Django'dagi DATABASES konfiguratsiyasiga mos
+      POSTGRES_PASSWORD: wedding_password  # Django'dagi DATABASES konfiguratsiyasiga mos
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
