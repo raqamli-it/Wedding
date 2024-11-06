@@ -9,7 +9,7 @@ services:
       - static_volume:/Wedding/static
       - media_volume:/Wedding/media
     ports:
-      - "8020:8000"
+      - "8050:8000"
     depends_on:
       - wedding_db
 
